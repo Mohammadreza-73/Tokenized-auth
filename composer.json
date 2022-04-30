@@ -1,0 +1,47 @@
+
+{
+    "name": "mohammadreza/laravel-tokenize-auth",
+    "description": "",
+    "keywords": [
+      "laravel",
+      "laravel-package",
+      "PHP",
+      "passwordless-auth",
+      "tokenized-login"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/Mohammadreza-73/Tokenized-auth",
+    "authors": [
+      {
+        "name": "Mohammadreza Rahimi",
+        "email": "mohammadreza.rahimi93@yahoo.com"
+      }
+    ],
+    "require": {
+      "php": "^7.1.3|7.2.*|7.3.*|7.4.*|8.*",
+      "laravel/framework": "~5.1|6.*|7.*|8.*|9.*",
+      "imanghafoori/laravel-nullable": "^1.2",
+      "imanghafoori/laravel-smart-facades": "^1.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "TokenizedLogin\\" : "tests"
+        }
+    },
+    "require-dev": {
+      "orchestra/testbench": "~6.0",
+      "mockery/mockery": "*"
+    },
+    "autoload": {
+      "psr-4": {
+        "TokenizedLogin\\" : "src"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "TokenizedLogin\\TwoFactorAuthServiceProvider"
+        ]
+      }
+    }
+  }
