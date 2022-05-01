@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\TokenGenerators;
+namespace TokenizedLogin\TokenGenerators;
 
 class TokenGenerator
 {

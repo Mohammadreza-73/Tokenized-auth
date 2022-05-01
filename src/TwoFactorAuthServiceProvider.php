@@ -1,24 +1,24 @@
 <?php
 
-namespace TwoFactorAuth;
+namespace TokenizedLogin;
 
-use TwoFactorAuth\TokenStores\TokenStore;
-use TwoFactorAuth\TokenStores\FakeTokenStore;
+use TokenizedLogin\TokenStores\TokenStore;
+use TokenizedLogin\TokenStores\FakeTokenStore;
 use Illuminate\Support\Facades\Route;
-use TwoFactorAuth\Facades\AuthFacade;
+use TokenizedLogin\Facades\AuthFacade;
 use Illuminate\Support\ServiceProvider;
-use TwoFactorAuth\Facades\TokenStoreFacade;
-use TwoFactorAuth\TokenSenders\TokenSender;
-use TwoFactorAuth\Authenticator\SessionAuth;
-use TwoFactorAuth\Facades\TokenSenderFacade;
-use TwoFactorAuth\Facades\UserProviderFacade;
-use TwoFactorAuth\Facades\TokenGeneratorFacade;
-use TwoFactorAuth\TokenSenders\FakeTokenSender;
-use TwoFactorAuth\TokenGenerators\FakeTokenGenerator;
+use TokenizedLogin\Facades\TokenStoreFacade;
+use TokenizedLogin\TokenSenders\TokenSender;
+use TokenizedLogin\Authenticator\SessionAuth;
+use TokenizedLogin\Facades\TokenSenderFacade;
+use TokenizedLogin\Facades\UserProviderFacade;
+use TokenizedLogin\Facades\TokenGeneratorFacade;
+use TokenizedLogin\TokenSenders\FakeTokenSender;
+use TokenizedLogin\TokenGenerators\FakeTokenGenerator;
 
 class TwoFactorAuthServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'TwoFactorAuth\Http\Controllers';
+    protected $namespace = 'TokenizedLogin\Http\Controllers';
 
     public function register()
     {

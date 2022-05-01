@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\Authenticator;
+namespace TokenizedLogin\Authenticator;
 
 use Illuminate\Support\Facades\Auth;
 

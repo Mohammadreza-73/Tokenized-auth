@@ -1,8 +1,8 @@
 <?php
 
-namespace TwoFactorAuth\TokenSenders;
+namespace TokenizedLogin\TokenSenders;
 
-use TwoFactorAuth\LoginTokenNotification;
+use TokenizedLogin\LoginTokenNotification;
 use Illuminate\Support\Facades\Notification;
 
 class TokenSender

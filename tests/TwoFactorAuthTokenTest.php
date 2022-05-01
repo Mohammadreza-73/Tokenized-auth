@@ -1,15 +1,15 @@
 <?php
 
-namespace TwoFactorAuth\tests;
+namespace TokenizedLogin;
 
-use Tests\TestCase;
-use App\Models\User;
-use TwoFactorAuth\Facades\AuthFacade;
-use TwoFactorAuth\Http\ResponderFacade;
-use TwoFactorAuth\Facades\TokenStoreFacade;
-use TwoFactorAuth\Facades\TokenSenderFacade;
-use TwoFactorAuth\Facades\UserProviderFacade;
-use TwoFactorAuth\Facades\TokenGeneratorFacade;
+use TokenizedLogin\TestCase;
+use Illuminate\Foundation\Auth\User;
+use TokenizedLogin\Facades\AuthFacade;
+use TokenizedLogin\Http\ResponderFacade;
+use TokenizedLogin\Facades\TokenStoreFacade;
+use TokenizedLogin\Facades\TokenSenderFacade;
+use TokenizedLogin\Facades\UserProviderFacade;
+use TokenizedLogin\Facades\TokenGeneratorFacade;
 
 class TwoFactorAuthTokenTest extends TestCase
 {
@@ -44,25 +44,6 @@ class TwoFactorAuthTokenTest extends TestCase
         ResponderFacade::shouldReceive('tokenSent')->once();
 
         $this->get('/api/two-factor-auth/request-token?email=foo@bar.com');
-    }
-
-    public function test_android_responses()
-    {
-        User::unguard();
-
-        UserProviderFacade::shouldReceive('isBanned')
-            ->once()
-            ->with(1)
-            ->andReturn(false);
-            
-        $user = new User(['id' => 1, 'email' => 'foo@bar.com']);
-        UserProviderFacade::shouldReceive('getUserByEmail')
-            ->once()
-            ->with('foo@bar.com')
-            ->andReturn(nullable($user));
-
-        $response = $this->get('/api/two-factor-auth/request-token?email=foo@bar.com&client=android');
-        $response->assertJson(['message' => 'Token was sent to your app.']);
     }
 
     public function test_user_is_banned()

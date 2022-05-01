@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\TokenSenders;
+namespace TokenizedLogin\TokenSenders;
 
 class FakeTokenSender
 {

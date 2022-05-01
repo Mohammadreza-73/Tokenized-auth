@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\Facades;
+namespace TokenizedLogin\Facades;
 
 use Imanghafoori\SmartFacades\Facade;
 

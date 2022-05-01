@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\Facades;
+namespace TokenizedLogin\Facades;
 
 class UserProviderFacade extends BaseFacade
 {

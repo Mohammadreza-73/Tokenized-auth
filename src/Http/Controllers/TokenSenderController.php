@@ -1,15 +1,15 @@
 <?php
 
-namespace TwoFactorAuth\Http\Controllers;
+namespace TokenizedLogin\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use TwoFactorAuth\Facades\AuthFacade;
-use TwoFactorAuth\Http\ResponderFacade;
+use TokenizedLogin\Facades\AuthFacade;
+use TokenizedLogin\Http\ResponderFacade;
 use Illuminate\Support\Facades\Validator;
-use TwoFactorAuth\Facades\TokenStoreFacade;
-use TwoFactorAuth\Facades\TokenSenderFacade;
-use TwoFactorAuth\Facades\UserProviderFacade;
-use TwoFactorAuth\Facades\TokenGeneratorFacade;
+use TokenizedLogin\Facades\TokenStoreFacade;
+use TokenizedLogin\Facades\TokenSenderFacade;
+use TokenizedLogin\Facades\UserProviderFacade;
+use TokenizedLogin\Facades\TokenGeneratorFacade;
 
 class TokenSenderController extends Controller
 {

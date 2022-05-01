@@ -1,8 +1,8 @@
 <?php
 
-namespace TwoFactorAuth\Http;
+namespace TokenizedLogin\Http;
 
-use TwoFactorAuth\Facades\BaseFacade;
+use TokenizedLogin\Facades\BaseFacade;
 
 class ResponderFacade extends BaseFacade
 {

@@ -2,8 +2,8 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use TwoFactorAuth\Facades\TokenStoreFacade;
-use TwoFactorAuth\Facades\TokenSenderFacade;
+use TokenizedLogin\Facades\TokenStoreFacade;
+use TokenizedLogin\Facades\TokenSenderFacade;
 
 Route::get('/two-factor-auth/request-token', 'TokenSenderController@issueToken')
     ->name('2factor.requestToken');

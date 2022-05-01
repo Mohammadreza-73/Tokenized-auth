@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth\TokenStores;
+namespace TokenizedLogin\TokenStores;
 
 class TokenStore
 {

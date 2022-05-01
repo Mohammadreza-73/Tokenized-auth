@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth;
+namespace TokenizedLogin;
 
 use App\Models\User;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TwoFactorAuth;
+namespace TokenizedLogin;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
