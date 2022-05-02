@@ -55,6 +55,6 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->namespace($this->namespace)
-            ->group(base_path('two_factor_auth/routes.php'));
+            ->group(__DIR__.'/routes.php');
     }
 }
