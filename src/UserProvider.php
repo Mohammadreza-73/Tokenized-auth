@@ -2,7 +2,7 @@
 
 namespace TokenizedLogin;
 
-use App\Models\User;
+use Illuminate\Foundation\Auth\User;
 
 class UserProvider
 {
