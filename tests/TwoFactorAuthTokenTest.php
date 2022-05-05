@@ -23,7 +23,7 @@ class TwoFactorAuthTokenTest extends TestCase
             ->andReturn(false);
         
         $user = new User(['id' => 1, 'email' => 'foo@bar.com']);
-        UserProviderFacade::shouldReceive('getUserByEmail')
+        UserProviderFacade::shouldReceive('getUserbyEmail')
             ->once()
             ->with('foo@bar.com')
             ->andReturn(nullable($user));

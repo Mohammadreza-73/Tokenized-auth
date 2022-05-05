@@ -2,18 +2,19 @@
 
 namespace TokenizedLogin;
 
-use TokenizedLogin\TokenStores\TokenStore;
-use TokenizedLogin\TokenStores\FakeTokenStore;
 use Illuminate\Support\Facades\Route;
 use TokenizedLogin\Facades\AuthFacade;
 use Illuminate\Support\ServiceProvider;
+use TokenizedLogin\TokenStores\TokenStore;
 use TokenizedLogin\Facades\TokenStoreFacade;
 use TokenizedLogin\TokenSenders\TokenSender;
 use TokenizedLogin\Authenticator\SessionAuth;
 use TokenizedLogin\Facades\TokenSenderFacade;
 use TokenizedLogin\Facades\UserProviderFacade;
+use TokenizedLogin\TokenStores\FakeTokenStore;
 use TokenizedLogin\Facades\TokenGeneratorFacade;
 use TokenizedLogin\TokenSenders\FakeTokenSender;
+use TokenizedLogin\TokenGenerators\TokenGenerator;
 use TokenizedLogin\TokenGenerators\FakeTokenGenerator;
 
 class TwoFactorAuthServiceProvider extends ServiceProvider
