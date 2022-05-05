@@ -13,6 +13,8 @@ use TokenizedLogin\Facades\TokenSenderFacade;
 use TokenizedLogin\Facades\UserProviderFacade;
 use TokenizedLogin\TokenStores\FakeTokenStore;
 use TokenizedLogin\Facades\TokenGeneratorFacade;
+use TokenizedLogin\Http\ResponderFacade;
+use TokenizedLogin\Http\Responses\Responses;
 use TokenizedLogin\TokenSenders\FakeTokenSender;
 use TokenizedLogin\TokenGenerators\TokenGenerator;
 use TokenizedLogin\TokenGenerators\FakeTokenGenerator;
@@ -39,6 +41,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
             $tokenSender = TokenSender::class;
         }
 
+        ResponderFacade::shouldProxyTo(Responses::class);
         TokenGeneratorFacade::shouldProxyTo($tokenGenerator);
         TokenStoreFacade::shouldProxyTo($tokenStore);
         TokenSenderFacade::shouldProxyTo($tokenSender);

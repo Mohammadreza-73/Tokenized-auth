@@ -7,8 +7,8 @@ use TokenizedLogin\Http\Responses\Responses;
 
 class ResponderFacade extends BaseFacade
 {
-    protected static function getFacadeAccessor()
-    {
-        return Responses::class;
-    }
+    // protected static function getFacadeAccessor()
+    // {
+    //     return Responses::class;
+    // }
 }
