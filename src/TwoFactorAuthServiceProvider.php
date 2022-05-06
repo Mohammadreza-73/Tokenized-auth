@@ -25,7 +25,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/two_factor_auth_config.php', 'two_factor_auth');
+        $this->mergeConfigFrom(__DIR__ . '/config/tokenized_auth.php', 'tokenized_login');
 
         AuthFacade::shouldProxyTo(SessionAuth::class);
         UserProviderFacade::shouldProxyTo(UserProvider::class);
