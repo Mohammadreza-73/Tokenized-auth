@@ -52,6 +52,12 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
             $this->defineRoutes();
         }
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/config' => $this->app->configPath()
+            ], 'tokenized_auth');
+        }
     }
 
     private function defineRoutes()
