@@ -5,30 +5,27 @@ namespace TokenizedLogin;
 use Illuminate\Support\Facades\Route;
 use TokenizedLogin\Facades\AuthFacade;
 use Illuminate\Support\ServiceProvider;
+use TokenizedLogin\Http\ResponderFacade;
 use TokenizedLogin\TokenStores\TokenStore;
 use TokenizedLogin\Facades\TokenStoreFacade;
-use TokenizedLogin\TokenSenders\TokenSender;
 use TokenizedLogin\Authenticator\SessionAuth;
 use TokenizedLogin\Facades\TokenSenderFacade;
 use TokenizedLogin\Facades\UserProviderFacade;
 use TokenizedLogin\TokenStores\FakeTokenStore;
 use TokenizedLogin\Facades\TokenGeneratorFacade;
-use TokenizedLogin\Http\ResponderFacade;
-use TokenizedLogin\Http\Responses\Responses;
 use TokenizedLogin\TokenSenders\FakeTokenSender;
-use TokenizedLogin\TokenGenerators\TokenGenerator;
 use TokenizedLogin\TokenGenerators\FakeTokenGenerator;
 
 class TwoFactorAuthServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'TokenizedLogin\Http\Controllers';
+    private $namespace = 'TokenizedLogin\Http\Controllers';
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/tokenized_auth.php', 'tokenized_login');
+        $this->mergeConfigFrom(__DIR__ . '/config/tokenized_auth.php', 'tokenized_auth');
 
         AuthFacade::shouldProxyTo(SessionAuth::class);
-        UserProviderFacade::shouldProxyTo(UserProvider::class);
+        UserProviderFacade::shouldProxyTo(config('tokenized_auth.user_provider'));
 
         if (app()->runningUnitTests()) {
             $tokenGenerator = FakeTokenGenerator::class;
@@ -36,12 +33,12 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
             $tokenSender = FakeTokenSender::class;
 
         } else {
-            $tokenGenerator = TokenGenerator::class;
+            $tokenGenerator = config('tokenized_auth.token_generator');
             $tokenStore = TokenStore::class;
-            $tokenSender = TokenSender::class;
+            $tokenSender = config('tokenized_auth.token_sender');
         }
 
-        ResponderFacade::shouldProxyTo(Responses::class);
+        ResponderFacade::shouldProxyTo(config('tokenized_auth.responses'));
         TokenGeneratorFacade::shouldProxyTo($tokenGenerator);
         TokenStoreFacade::shouldProxyTo($tokenStore);
         TokenSenderFacade::shouldProxyTo($tokenSender);
@@ -49,13 +46,13 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        if (! $this->app->routesAreCached()) {
+        if (! $this->app->routesAreCached() && config('tokenized_auth.use_default_routes')) {
             $this->defineRoutes();
         }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/config' => $this->app->configPath()
+                __DIR__ . '/config' => $this->app->configPath(),
             ], 'tokenized_auth');
         }
     }
@@ -63,7 +60,7 @@ class TwoFactorAuthServiceProvider extends ServiceProvider
     private function defineRoutes()
     {
         Route::prefix('api')
-            ->middleware('api')
+            ->middleware(config('tokenized_auth.route_middlewares'))
             ->namespace($this->namespace)
             ->group(__DIR__.'/routes.php');
     }

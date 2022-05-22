@@ -13,8 +13,8 @@ class TokenStore
      */
     public function saveToken(string $token, int $userId): void
     {
-        $ttl = config('two_factor_auth.token_ttl');
-        cache()->set($token . '_2factor_auth', $userId, $ttl);
+        $ttl = config('tokenized_auth.token_ttl');
+        cache()->set($token . '_2factor_auth', $userId, now()->addSeconds($ttl));
     }
 
     public function getUidByToken($token)

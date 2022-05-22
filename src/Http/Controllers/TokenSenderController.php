@@ -53,7 +53,7 @@ class TokenSenderController extends Controller
         TokenSenderFacade::send($token, $user);
 
         # 5. Send Response
-         return ResponderFacade::tokenSent();
+        return ResponderFacade::tokenSent();
     }
 
     /**
@@ -84,7 +84,9 @@ class TokenSenderController extends Controller
      */
     private function validateEmailIsValid()
     {
-        $validator = Validator::make(request()->all(), ['email' => 'required|email']);
+        $rules = config('tokenized_auth.address_validation_rules');
+        
+        $validator = Validator::make(request()->all(), ['email' => $rules]);
 
         if ($validator->fails()) {
             ResponderFacade::emailNotValid()->throwResponse();

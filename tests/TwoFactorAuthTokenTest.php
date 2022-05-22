@@ -43,7 +43,7 @@ class TwoFactorAuthTokenTest extends TestCase
         
         ResponderFacade::shouldReceive('tokenSent')->once();
 
-        $this->get('/api/two-factor-auth/request-token?email=foo@bar.com');
+        $this->get('/api/tokenized-login/request-token?email=foo@bar.com');
     }
 
     public function test_user_is_banned()
@@ -67,7 +67,7 @@ class TwoFactorAuthTokenTest extends TestCase
 
         TokenSenderFacade::shouldReceive('send')->never();
 
-        $response = $this->get('/api/two-factor-auth/request-token?email=foo@bar.com');
+        $response = $this->get('/api/tokenized-login/request-token?email=foo@bar.com');
 
         $response->assertStatus(400);
         $response->assertJson(['error' => 'You are blocked']);
@@ -87,7 +87,7 @@ class TwoFactorAuthTokenTest extends TestCase
             ->once()
             ->andReturn(response('hello'));
 
-        $response = $this->get('/api/two-factor-auth/request-token?email=foo@bar.com');
+        $response = $this->get('/api/tokenized-login/request-token?email=foo@bar.com');
         $response->assertSee('hello');
     }
 
@@ -101,7 +101,7 @@ class TwoFactorAuthTokenTest extends TestCase
             ->once()
             ->andReturn(response('hello'));
 
-        $response = $this->get('/api/two-factor-auth/request-token?email=foo_bar.com');
+        $response = $this->get('/api/tokenized-login/request-token?email=foo_bar.com');
         $response->assertSee('hello');
     }
 
@@ -119,7 +119,7 @@ class TwoFactorAuthTokenTest extends TestCase
             ->once()
             ->andReturn(response('hello'));
 
-        $response = $this->get('/api/two-factor-auth/request-token?email=foo@bar.com');
+        $response = $this->get('/api/tokenized-login/request-token?email=foo@bar.com');
         $response->assertSee('hello');
     }
 }

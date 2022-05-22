@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/two-factor-auth/request-token', 'TokenSenderController@issueToken')
-    ->name('2factor.requestToken');
+Route::prefix(config('tokenized_auth.route_prefix_url'))->middleware(config('tokenized_auth.throttler_middleware'))->group(function () {
 
-Route::get('/two-factor-auth/login', 'TokenSenderController@loginWithToken')
-    ->name('2factor.login');
+    Route::get('/request-token', 'TokenSenderController@issueToken')
+        ->name('2factor.requestToken');
+
+    Route::get('/login', 'TokenSenderController@loginWithToken')
+        ->name('2factor.login');
+
+});
