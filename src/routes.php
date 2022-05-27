@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use TokenizedLogin\Http\Controllers\TokenSenderController;
 
 Route::prefix(config('tokenized_auth.route_prefix_url'))->middleware(config('tokenized_auth.throttler_middleware'))->group(function () {
 
-    Route::get('/request-token', 'TokenSenderController@issueToken')
+    Route::post('/request-token', [TokenSenderController::class, 'issueToken'])
         ->name('2factor.requestToken');
 
-    Route::get('/login', 'TokenSenderController@loginWithToken')
+    Route::post('/login', [TokenSenderController::class, 'loginWithToken'])
         ->name('2factor.login');
 
 });
