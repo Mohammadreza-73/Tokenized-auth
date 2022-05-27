@@ -7,7 +7,7 @@
 This package creates a 6 digits token, which allows you to send it by SMS, email, etc to users and they can login into their account with that token by sending it to specific endpoint.
 
 Tokens are auto expiring and single use.
-# Installation
+# Installation:
 ```
 composer require m.rahimi/laravel-tokenize-auth
 ```
@@ -95,6 +95,11 @@ If you want to swap the default implementations behind the facades with your own
      */
     'throttler_middleware' => 'throttle:3,1',
 ];
+```
+
+# Testing:
+```
+vendor/bin/phpunit
 ```
 
 --------------------
