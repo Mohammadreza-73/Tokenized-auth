@@ -1,6 +1,6 @@
 # Tokenized-auth
 
-[![Latest Stable Version](http://poser.pugx.org/m.rahimi/laravel-tokenize-auth/v)](https://packagist.org/packages/m.rahimi/laravel-tokenize-auth))
+[![Latest Stable Version](http://poser.pugx.org/m.rahimi/laravel-tokenize-auth/v)](https://packagist.org/packages/m.rahimi/laravel-tokenize-auth)
 [![Total Downloads](http://poser.pugx.org/m.rahimi/laravel-tokenize-auth/downloads)](https://packagist.org/packages/m.rahimi/laravel-tokenize-auth)
 [![License](http://poser.pugx.org/m.rahimi/laravel-tokenize-auth/license)](https://packagist.org/packages/m.rahimi/laravel-tokenize-auth)
 
