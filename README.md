@@ -7,7 +7,7 @@
 This package creates a 6 digits token, which allows you to send it by SMS, email, etc to users and they can login into their account with that token by sending it to specific endpoint.
 
 Tokens are auto expiring and single use.
-# Installation:
+## ⬇ Installation:
 ```
 composer require m.rahimi/laravel-tokenize-auth
 ```
@@ -17,7 +17,7 @@ Then publish the config file:
 php artisan vendor:publish
 ```
 
-# Basic usage:
+## Basic usage:
 Basically, this package introduces 2 endpoints, which you can send requests to them.
 
 1. Generate and send the token to the user
@@ -31,7 +31,7 @@ POST '/tokenized-login/login?email=foo@example.com'
 ```
 Note: If you want to use another shape of urls, just disable default routes in config file ```'use_default_routes' => false,``` and define your routes.
 
-# Customization:
+## Customization:
 You are free to customize and swap the default classes, with your own classes.
 
 If you want to swap the default implementations behind the facades with your own, you can do it within the `boot` method of any service provider class like this :
@@ -97,12 +97,16 @@ If you want to swap the default implementations behind the facades with your own
 ];
 ```
 
-# Testing:
+## Testing:
 ```
-vendor/bin/phpunit
+composer test
 ```
 
---------------------
-
-### :raising_hand: Contributing 
+## :raising_hand: Contributing 
 If you find an issue, or have a better way to do something, feel free to open an issue or a pull request.
+
+## Security
+If you discover any security related issues, please email [mohammadreza.rahimi1373@gmail.com](mailto:mohammadreza.rahimi1373@gmail.com) instead of using the issue tracker.
+
+## License
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
