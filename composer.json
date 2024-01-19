@@ -1,7 +1,7 @@
 
 {
     "name": "m.rahimi/laravel-tokenize-auth",
-    "description": "",
+    "description": "Generate token for authentication.",
     "keywords": [
       "laravel",
       "laravel-package",
@@ -23,11 +23,6 @@
       "imanghafoori/laravel-nullable": "^1.2",
       "imanghafoori/laravel-smart-facades": "^1.0"
     },
-    "autoload-dev": {
-        "psr-4": {
-          "TokenizedLogin\\" : "tests"
-        }
-    },
     "require-dev": {
       "orchestra/testbench": "~6.0",
       "mockery/mockery": "*"
@@ -35,6 +30,11 @@
     "autoload": {
       "psr-4": {
         "TokenizedLogin\\" : "src"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "TokenizedLogin\\" : "tests"
       }
     },
     "extra": {
